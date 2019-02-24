@@ -9,10 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
 public class SeleniumDemo {
+
+    private static final Logger logger = LoggerFactory.getLogger(SeleniumDemo.class);
 
     private static final String DRIVER_PATH = Thread.currentThread().getContextClassLoader().getResource("").getPath() + "drvier\\chromedriver.exe";
 
@@ -45,7 +49,7 @@ public class SeleniumDemo {
             }
         });
 
-        System.out.println("Page is :" + webDriver.getTitle());
+        logger.info("Page is :{}", webDriver.getTitle());
 
         webDriver.close();
 
